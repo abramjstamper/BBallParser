@@ -1,23 +1,36 @@
 grammar Basketball;
 
-start   :  shot  ';';
-shot: FGM player assist
-    | FGM player
-    | FGA player assist
-    |
+start       : (shot
+            | foul
+            | turnover
+            | CLOCK)
+            SEMI;
 
+shot        : FGM player assist?
+            | FGA player assistAtt? rebound
+            | ;
 
+rebound     : player;
 
-player: TEAM NUMBER;
+assist      : player;
 
-assist: TEAM NUMBER;
+assistAtt   : player;
 
-turnover: 'T' player
-         | 'T' player player;
+player      : TEAM NUMBER?;
 
-freethrow;
+turnover    : 't' player
+            | 't' player player ;
 
-NUMBER : '^'[1-9]{2}'$';
+foul        : 'f' player CLOCK { System.out.println("What time is it?") } freethrow+;
+
+freethrow   : 'm' player
+            | 'a' player rebound ;
+
+CLOCK       : [0-9]':'[0-5][0-9];
+
+SEMI        : ';';
+
+NUMBER : [0-9][0-9];
 
 FGM: [2|3]'fgm';
 FGMA: [2|3]'fga';
