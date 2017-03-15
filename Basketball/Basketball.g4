@@ -4,7 +4,7 @@ start       : (shot
             | foul
             | turnover
             | CLOCK
-            | QUARTER)
+            | quarter)
             SEMI;
 
 shot        : FGM player assist?
@@ -22,14 +22,16 @@ player      : TEAM NUMBER?;
 turnover    : 't' player
             | 't' player player ;
 
-foul        : 'f' player CLOCK { System.out.println("What time is it?"); } freethrow+;
+foul        : 'f' player CLOCK { System.out.println("What time is it?"); } freethrow? freethrow? freethrow?;
 
 freethrow   : 'm' player
-            | 'a' player rebound ;
+            | 'a' player rebound;
+
+quarter     : 'q'QUARTERS CLOCK;
 
 CLOCK       : [0-9]':'[0-5][0-9];
 
-QUARTER     : 'q'[1-8];
+QUARTERS    : [1-8];
 
 SEMI        : ';';
 

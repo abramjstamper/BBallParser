@@ -1,23 +1,23 @@
 3fgm h44;
 
-3fga h44 a22;
+3fga h44 g22;
 
 2fgm h44 h33;
 
-2fga h44 a11;
+2fga h44 g11;
 
-2fga h44 h54 a11;
+2fga h44 h54 g11;
 
 f h33 3:33;
 
-f h33 3:33 m a43;
+f h33 3:33 m g43;
 
-f h33 3:33 m a43 a43 h10;
+f h33 3:33 a g43 h m g23;
 
-t h23 a43;
+t h23 g43;
 
 t h23;
 
 6:00;
 
-q2;
+q4 6:00;
