@@ -1,35 +1,27 @@
 grammar Basketball;
 
-start   :
-        list 'EOF' ;
+start   :  shot  ';';
+shot: FGM player assist
+    | FGM player
+    | FGA player assist
+    |
 
-list    : expr ';' list
-        | ;
 
-expr    : term terms;
 
-terms   : '+' term terms
-        | '-' term terms
-        | ;
+player: TEAM NUMBER;
 
-term : factor factors;
+assist: TEAM NUMBER;
 
-factors : '*' factor factors
-        | '/' factor factors
-        | mod factor factors
-        | ;
+turnover: 'T' player
+         | 'T' player player;
 
-factor : '(' expr ')'
-        | id
-        | NUM ;
+freethrow;
 
-mod : 'MOD';
+NUMBER : '^'[1-9]{2}'$';
 
-id : LETTER ( LETTER | NUM )*;
+FGM: [2|3]'fgm';
+FGMA: [2|3]'fga';
 
-NUM : '0'..'9'+;
-
-LETTER : 'A'..'Z'
-       | 'a'..'z';
+TEAM : [a-zA-Z];
 
 WS : [ \r\t\n] -> skip ;
