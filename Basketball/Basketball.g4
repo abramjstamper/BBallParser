@@ -3,7 +3,8 @@ grammar Basketball;
 start       : (shot
             | foul
             | turnover
-            | CLOCK)
+            | CLOCK
+            | QUARTER)
             SEMI;
 
 shot        : FGM player assist?
@@ -27,6 +28,8 @@ freethrow   : 'm' player
             | 'a' player rebound ;
 
 CLOCK       : [0-9]':'[0-5][0-9];
+
+QUARTER     : 'q'[1-8];
 
 SEMI        : ';';
 
