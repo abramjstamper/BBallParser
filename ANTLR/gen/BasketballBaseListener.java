@@ -27,97 +27,97 @@ public class BasketballBaseListener implements BasketballListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterList(BasketballParser.ListContext ctx) { }
+	@Override public void enterShot(BasketballParser.ShotContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitList(BasketballParser.ListContext ctx) { }
+	@Override public void exitShot(BasketballParser.ShotContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterExpr(BasketballParser.ExprContext ctx) { }
+	@Override public void enterRebound(BasketballParser.ReboundContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitExpr(BasketballParser.ExprContext ctx) { }
+	@Override public void exitRebound(BasketballParser.ReboundContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterTerms(BasketballParser.TermsContext ctx) { }
+	@Override public void enterAssist(BasketballParser.AssistContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitTerms(BasketballParser.TermsContext ctx) { }
+	@Override public void exitAssist(BasketballParser.AssistContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterTerm(BasketballParser.TermContext ctx) { }
+	@Override public void enterAssistAtt(BasketballParser.AssistAttContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitTerm(BasketballParser.TermContext ctx) { }
+	@Override public void exitAssistAtt(BasketballParser.AssistAttContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFactors(BasketballParser.FactorsContext ctx) { }
+	@Override public void enterPlayer(BasketballParser.PlayerContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFactors(BasketballParser.FactorsContext ctx) { }
+	@Override public void exitPlayer(BasketballParser.PlayerContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFactor(BasketballParser.FactorContext ctx) { }
+	@Override public void enterTurnover(BasketballParser.TurnoverContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFactor(BasketballParser.FactorContext ctx) { }
+	@Override public void exitTurnover(BasketballParser.TurnoverContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterMod(BasketballParser.ModContext ctx) { }
+	@Override public void enterFoul(BasketballParser.FoulContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitMod(BasketballParser.ModContext ctx) { }
+	@Override public void exitFoul(BasketballParser.FoulContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterId(BasketballParser.IdContext ctx) { }
+	@Override public void enterFreethrow(BasketballParser.FreethrowContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitId(BasketballParser.IdContext ctx) { }
+	@Override public void exitFreethrow(BasketballParser.FreethrowContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

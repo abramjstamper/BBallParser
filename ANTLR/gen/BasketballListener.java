@@ -17,83 +17,83 @@ public interface BasketballListener extends ParseTreeListener {
 	 */
 	void exitStart(BasketballParser.StartContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link BasketballParser#list}.
+	 * Enter a parse tree produced by {@link BasketballParser#shot}.
 	 * @param ctx the parse tree
 	 */
-	void enterList(BasketballParser.ListContext ctx);
+	void enterShot(BasketballParser.ShotContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link BasketballParser#list}.
+	 * Exit a parse tree produced by {@link BasketballParser#shot}.
 	 * @param ctx the parse tree
 	 */
-	void exitList(BasketballParser.ListContext ctx);
+	void exitShot(BasketballParser.ShotContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link BasketballParser#expr}.
+	 * Enter a parse tree produced by {@link BasketballParser#rebound}.
 	 * @param ctx the parse tree
 	 */
-	void enterExpr(BasketballParser.ExprContext ctx);
+	void enterRebound(BasketballParser.ReboundContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link BasketballParser#expr}.
+	 * Exit a parse tree produced by {@link BasketballParser#rebound}.
 	 * @param ctx the parse tree
 	 */
-	void exitExpr(BasketballParser.ExprContext ctx);
+	void exitRebound(BasketballParser.ReboundContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link BasketballParser#terms}.
+	 * Enter a parse tree produced by {@link BasketballParser#assist}.
 	 * @param ctx the parse tree
 	 */
-	void enterTerms(BasketballParser.TermsContext ctx);
+	void enterAssist(BasketballParser.AssistContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link BasketballParser#terms}.
+	 * Exit a parse tree produced by {@link BasketballParser#assist}.
 	 * @param ctx the parse tree
 	 */
-	void exitTerms(BasketballParser.TermsContext ctx);
+	void exitAssist(BasketballParser.AssistContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link BasketballParser#term}.
+	 * Enter a parse tree produced by {@link BasketballParser#assistAtt}.
 	 * @param ctx the parse tree
 	 */
-	void enterTerm(BasketballParser.TermContext ctx);
+	void enterAssistAtt(BasketballParser.AssistAttContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link BasketballParser#term}.
+	 * Exit a parse tree produced by {@link BasketballParser#assistAtt}.
 	 * @param ctx the parse tree
 	 */
-	void exitTerm(BasketballParser.TermContext ctx);
+	void exitAssistAtt(BasketballParser.AssistAttContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link BasketballParser#factors}.
+	 * Enter a parse tree produced by {@link BasketballParser#player}.
 	 * @param ctx the parse tree
 	 */
-	void enterFactors(BasketballParser.FactorsContext ctx);
+	void enterPlayer(BasketballParser.PlayerContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link BasketballParser#factors}.
+	 * Exit a parse tree produced by {@link BasketballParser#player}.
 	 * @param ctx the parse tree
 	 */
-	void exitFactors(BasketballParser.FactorsContext ctx);
+	void exitPlayer(BasketballParser.PlayerContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link BasketballParser#factor}.
+	 * Enter a parse tree produced by {@link BasketballParser#turnover}.
 	 * @param ctx the parse tree
 	 */
-	void enterFactor(BasketballParser.FactorContext ctx);
+	void enterTurnover(BasketballParser.TurnoverContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link BasketballParser#factor}.
+	 * Exit a parse tree produced by {@link BasketballParser#turnover}.
 	 * @param ctx the parse tree
 	 */
-	void exitFactor(BasketballParser.FactorContext ctx);
+	void exitTurnover(BasketballParser.TurnoverContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link BasketballParser#mod}.
+	 * Enter a parse tree produced by {@link BasketballParser#foul}.
 	 * @param ctx the parse tree
 	 */
-	void enterMod(BasketballParser.ModContext ctx);
+	void enterFoul(BasketballParser.FoulContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link BasketballParser#mod}.
+	 * Exit a parse tree produced by {@link BasketballParser#foul}.
 	 * @param ctx the parse tree
 	 */
-	void exitMod(BasketballParser.ModContext ctx);
+	void exitFoul(BasketballParser.FoulContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link BasketballParser#id}.
+	 * Enter a parse tree produced by {@link BasketballParser#freethrow}.
 	 * @param ctx the parse tree
 	 */
-	void enterId(BasketballParser.IdContext ctx);
+	void enterFreethrow(BasketballParser.FreethrowContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link BasketballParser#id}.
+	 * Exit a parse tree produced by {@link BasketballParser#freethrow}.
 	 * @param ctx the parse tree
 	 */
-	void exitId(BasketballParser.IdContext ctx);
+	void exitFreethrow(BasketballParser.FreethrowContext ctx);
 }

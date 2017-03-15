@@ -16,51 +16,51 @@ public interface BasketballVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitStart(BasketballParser.StartContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link BasketballParser#list}.
+	 * Visit a parse tree produced by {@link BasketballParser#shot}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitList(BasketballParser.ListContext ctx);
+	T visitShot(BasketballParser.ShotContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link BasketballParser#expr}.
+	 * Visit a parse tree produced by {@link BasketballParser#rebound}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitExpr(BasketballParser.ExprContext ctx);
+	T visitRebound(BasketballParser.ReboundContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link BasketballParser#terms}.
+	 * Visit a parse tree produced by {@link BasketballParser#assist}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitTerms(BasketballParser.TermsContext ctx);
+	T visitAssist(BasketballParser.AssistContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link BasketballParser#term}.
+	 * Visit a parse tree produced by {@link BasketballParser#assistAtt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitTerm(BasketballParser.TermContext ctx);
+	T visitAssistAtt(BasketballParser.AssistAttContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link BasketballParser#factors}.
+	 * Visit a parse tree produced by {@link BasketballParser#player}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitFactors(BasketballParser.FactorsContext ctx);
+	T visitPlayer(BasketballParser.PlayerContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link BasketballParser#factor}.
+	 * Visit a parse tree produced by {@link BasketballParser#turnover}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitFactor(BasketballParser.FactorContext ctx);
+	T visitTurnover(BasketballParser.TurnoverContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link BasketballParser#mod}.
+	 * Visit a parse tree produced by {@link BasketballParser#foul}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitMod(BasketballParser.ModContext ctx);
+	T visitFoul(BasketballParser.FoulContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link BasketballParser#id}.
+	 * Visit a parse tree produced by {@link BasketballParser#freethrow}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitId(BasketballParser.IdContext ctx);
+	T visitFreethrow(BasketballParser.FreethrowContext ctx);
 }

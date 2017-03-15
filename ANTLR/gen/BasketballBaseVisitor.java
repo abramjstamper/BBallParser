@@ -23,54 +23,54 @@ public class BasketballBaseVisitor<T> extends AbstractParseTreeVisitor<T> implem
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitList(BasketballParser.ListContext ctx) { return visitChildren(ctx); }
+	@Override public T visitShot(BasketballParser.ShotContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitExpr(BasketballParser.ExprContext ctx) { return visitChildren(ctx); }
+	@Override public T visitRebound(BasketballParser.ReboundContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitTerms(BasketballParser.TermsContext ctx) { return visitChildren(ctx); }
+	@Override public T visitAssist(BasketballParser.AssistContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitTerm(BasketballParser.TermContext ctx) { return visitChildren(ctx); }
+	@Override public T visitAssistAtt(BasketballParser.AssistAttContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitFactors(BasketballParser.FactorsContext ctx) { return visitChildren(ctx); }
+	@Override public T visitPlayer(BasketballParser.PlayerContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitFactor(BasketballParser.FactorContext ctx) { return visitChildren(ctx); }
+	@Override public T visitTurnover(BasketballParser.TurnoverContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitMod(BasketballParser.ModContext ctx) { return visitChildren(ctx); }
+	@Override public T visitFoul(BasketballParser.FoulContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitId(BasketballParser.IdContext ctx) { return visitChildren(ctx); }
+	@Override public T visitFreethrow(BasketballParser.FreethrowContext ctx) { return visitChildren(ctx); }
 }
