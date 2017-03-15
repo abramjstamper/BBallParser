@@ -21,7 +21,7 @@ player      : TEAM NUMBER?;
 turnover    : 't' player
             | 't' player player ;
 
-foul        : 'f' player CLOCK { System.out.println("What time is it?") } freethrow+;
+foul        : 'f' player CLOCK { System.out.println("What time is it?"); } freethrow+;
 
 freethrow   : 'm' player
             | 'a' player rebound ;
@@ -33,7 +33,8 @@ SEMI        : ';';
 NUMBER : [0-9][0-9];
 
 FGM: [2|3]'fgm';
-FGMA: [2|3]'fga';
+
+FGA: [2|3]'fga';
 
 TEAM : [a-zA-Z];
 
