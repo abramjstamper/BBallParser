@@ -1,4 +1,4 @@
-// Generated from /Users/abramjstamper/Documents/Junior Year/2nd Semester/COS382/cos382LanguageStructs/Basketball/Basketball.g4 by ANTLR 4.6
+// Generated from /Users/andrew/Documents/Languague structures/cos382LanguageStructs/Basketball/Basketball.g4 by ANTLR 4.6
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -573,33 +573,32 @@ public class BasketballParser extends Parser {
 			player();
 			setState(64);
 			match(CLOCK);
-			 System.out.println("What time is it?"); 
-			setState(67);
+			setState(66);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,6,_ctx) ) {
 			case 1:
 				{
-				setState(66);
+				setState(65);
 				freethrow();
 				}
 				break;
 			}
-			setState(70);
+			setState(69);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,7,_ctx) ) {
 			case 1:
 				{
-				setState(69);
+				setState(68);
 				freethrow();
 				}
 				break;
 			}
-			setState(73);
+			setState(72);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==T__2 || _la==T__3) {
 				{
-				setState(72);
+				setState(71);
 				freethrow();
 				}
 			}
@@ -647,26 +646,26 @@ public class BasketballParser extends Parser {
 		FreethrowContext _localctx = new FreethrowContext(_ctx, getState());
 		enterRule(_localctx, 16, RULE_freethrow);
 		try {
-			setState(81);
+			setState(80);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case T__2:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(75);
+				setState(74);
 				match(T__2);
-				setState(76);
+				setState(75);
 				player();
 				}
 				break;
 			case T__3:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(77);
+				setState(76);
 				match(T__3);
-				setState(78);
+				setState(77);
 				player();
-				setState(79);
+				setState(78);
 				rebound();
 				}
 				break;
@@ -713,11 +712,11 @@ public class BasketballParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(83);
+			setState(82);
 			match(T__4);
-			setState(84);
+			setState(83);
 			match(QUARTERS);
-			setState(85);
+			setState(84);
 			match(CLOCK);
 			}
 		}
@@ -733,28 +732,28 @@ public class BasketballParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\17Z\4\2\t\2\4\3\t"+
+		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\17Y\4\2\t\2\4\3\t"+
 		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t\13\3"+
 		"\2\3\2\3\2\3\2\3\2\5\2\34\n\2\3\2\3\2\3\3\3\3\3\3\5\3#\n\3\3\3\3\3\3\3"+
 		"\5\3(\n\3\3\3\3\3\3\3\5\3-\n\3\3\4\3\4\3\5\3\5\3\6\3\6\3\7\3\7\5\7\67"+
-		"\n\7\3\b\3\b\3\b\3\b\3\b\3\b\5\b?\n\b\3\t\3\t\3\t\3\t\3\t\5\tF\n\t\3\t"+
-		"\5\tI\n\t\3\t\5\tL\n\t\3\n\3\n\3\n\3\n\3\n\3\n\5\nT\n\n\3\13\3\13\3\13"+
-		"\3\13\3\13\2\2\f\2\4\6\b\n\f\16\20\22\24\2\2]\2\33\3\2\2\2\4,\3\2\2\2"+
-		"\6.\3\2\2\2\b\60\3\2\2\2\n\62\3\2\2\2\f\64\3\2\2\2\16>\3\2\2\2\20@\3\2"+
-		"\2\2\22S\3\2\2\2\24U\3\2\2\2\26\34\5\4\3\2\27\34\5\20\t\2\30\34\5\16\b"+
-		"\2\31\34\7\b\2\2\32\34\5\24\13\2\33\26\3\2\2\2\33\27\3\2\2\2\33\30\3\2"+
-		"\2\2\33\31\3\2\2\2\33\32\3\2\2\2\34\35\3\2\2\2\35\36\7\n\2\2\36\3\3\2"+
-		"\2\2\37 \7\f\2\2 \"\5\f\7\2!#\5\b\5\2\"!\3\2\2\2\"#\3\2\2\2#-\3\2\2\2"+
-		"$%\7\r\2\2%\'\5\f\7\2&(\5\n\6\2\'&\3\2\2\2\'(\3\2\2\2()\3\2\2\2)*\5\6"+
-		"\4\2*-\3\2\2\2+-\3\2\2\2,\37\3\2\2\2,$\3\2\2\2,+\3\2\2\2-\5\3\2\2\2./"+
-		"\5\f\7\2/\7\3\2\2\2\60\61\5\f\7\2\61\t\3\2\2\2\62\63\5\f\7\2\63\13\3\2"+
-		"\2\2\64\66\7\16\2\2\65\67\7\13\2\2\66\65\3\2\2\2\66\67\3\2\2\2\67\r\3"+
-		"\2\2\289\7\3\2\29?\5\f\7\2:;\7\3\2\2;<\5\f\7\2<=\5\f\7\2=?\3\2\2\2>8\3"+
-		"\2\2\2>:\3\2\2\2?\17\3\2\2\2@A\7\4\2\2AB\5\f\7\2BC\7\b\2\2CE\b\t\1\2D"+
-		"F\5\22\n\2ED\3\2\2\2EF\3\2\2\2FH\3\2\2\2GI\5\22\n\2HG\3\2\2\2HI\3\2\2"+
-		"\2IK\3\2\2\2JL\5\22\n\2KJ\3\2\2\2KL\3\2\2\2L\21\3\2\2\2MN\7\5\2\2NT\5"+
-		"\f\7\2OP\7\6\2\2PQ\5\f\7\2QR\5\6\4\2RT\3\2\2\2SM\3\2\2\2SO\3\2\2\2T\23"+
-		"\3\2\2\2UV\7\7\2\2VW\7\t\2\2WX\7\b\2\2X\25\3\2\2\2\f\33\"\',\66>EHKS";
+		"\n\7\3\b\3\b\3\b\3\b\3\b\3\b\5\b?\n\b\3\t\3\t\3\t\3\t\5\tE\n\t\3\t\5\t"+
+		"H\n\t\3\t\5\tK\n\t\3\n\3\n\3\n\3\n\3\n\3\n\5\nS\n\n\3\13\3\13\3\13\3\13"+
+		"\3\13\2\2\f\2\4\6\b\n\f\16\20\22\24\2\2\\\2\33\3\2\2\2\4,\3\2\2\2\6.\3"+
+		"\2\2\2\b\60\3\2\2\2\n\62\3\2\2\2\f\64\3\2\2\2\16>\3\2\2\2\20@\3\2\2\2"+
+		"\22R\3\2\2\2\24T\3\2\2\2\26\34\5\4\3\2\27\34\5\20\t\2\30\34\5\16\b\2\31"+
+		"\34\7\b\2\2\32\34\5\24\13\2\33\26\3\2\2\2\33\27\3\2\2\2\33\30\3\2\2\2"+
+		"\33\31\3\2\2\2\33\32\3\2\2\2\34\35\3\2\2\2\35\36\7\n\2\2\36\3\3\2\2\2"+
+		"\37 \7\f\2\2 \"\5\f\7\2!#\5\b\5\2\"!\3\2\2\2\"#\3\2\2\2#-\3\2\2\2$%\7"+
+		"\r\2\2%\'\5\f\7\2&(\5\n\6\2\'&\3\2\2\2\'(\3\2\2\2()\3\2\2\2)*\5\6\4\2"+
+		"*-\3\2\2\2+-\3\2\2\2,\37\3\2\2\2,$\3\2\2\2,+\3\2\2\2-\5\3\2\2\2./\5\f"+
+		"\7\2/\7\3\2\2\2\60\61\5\f\7\2\61\t\3\2\2\2\62\63\5\f\7\2\63\13\3\2\2\2"+
+		"\64\66\7\16\2\2\65\67\7\13\2\2\66\65\3\2\2\2\66\67\3\2\2\2\67\r\3\2\2"+
+		"\289\7\3\2\29?\5\f\7\2:;\7\3\2\2;<\5\f\7\2<=\5\f\7\2=?\3\2\2\2>8\3\2\2"+
+		"\2>:\3\2\2\2?\17\3\2\2\2@A\7\4\2\2AB\5\f\7\2BD\7\b\2\2CE\5\22\n\2DC\3"+
+		"\2\2\2DE\3\2\2\2EG\3\2\2\2FH\5\22\n\2GF\3\2\2\2GH\3\2\2\2HJ\3\2\2\2IK"+
+		"\5\22\n\2JI\3\2\2\2JK\3\2\2\2K\21\3\2\2\2LM\7\5\2\2MS\5\f\7\2NO\7\6\2"+
+		"\2OP\5\f\7\2PQ\5\6\4\2QS\3\2\2\2RL\3\2\2\2RN\3\2\2\2S\23\3\2\2\2TU\7\7"+
+		"\2\2UV\7\t\2\2VW\7\b\2\2W\25\3\2\2\2\f\33\"\',\66>DGJR";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

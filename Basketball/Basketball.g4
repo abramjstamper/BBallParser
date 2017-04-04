@@ -22,7 +22,7 @@ player      : TEAM NUMBER?;
 turnover    : 't' player
             | 't' player player ;
 
-foul        : 'f' player CLOCK { System.out.println("What time is it?"); } freethrow? freethrow? freethrow?;
+foul        : 'f' player CLOCK freethrow? freethrow? freethrow?;
 
 freethrow   : 'm' player
             | 'a' player rebound;
