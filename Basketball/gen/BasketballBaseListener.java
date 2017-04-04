@@ -1,4 +1,4 @@
-// Generated from /Users/andrew/Documents/Languague structures/cos382LanguageStructs/Basketball/Basketball.g4 by ANTLR 4.6
+// Generated from /Users/abramjstamper/Documents/Junior Year/2nd Semester/COS382/cos382LanguageStructs/Basketball/Basketball.g4 by ANTLR 4.6
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
@@ -118,6 +118,18 @@ public class BasketballBaseListener implements BasketballListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitFreethrow(BasketballParser.FreethrowContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterQuarter(BasketballParser.QuarterContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitQuarter(BasketballParser.QuarterContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
