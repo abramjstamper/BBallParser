@@ -2,6 +2,7 @@ import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 
 import java.io.FileInputStream;
+import java.util.ArrayList;
 import java.util.Hashtable;
 
 public class TestBasketball extends BasketballBaseListener{
@@ -76,6 +77,27 @@ public class TestBasketball extends BasketballBaseListener{
     }
 
     public void prettyPrint(){
+        Bag<Integer> homePlayers = new Bag<>();
+        Bag<Integer> guestPlayers = new Bag<>();
+
+        for (int player: homeTeamShotsMade.keySet()) {
+            homePlayers.add(player);
+        }
+        for (int player: homeTeamShotsMissed.keySet()) {
+            homePlayers.add(player);
+        }
+        for (int player: homeTeamAssists.keySet()){
+            homePlayers.add(player);
+        }
+        for(int player: homeTeamFouls.keySet()){
+            homePlayers.add(player);
+        }
+
+        for(int player: homePlayers){
+            System.out.println(player);
+        }
+
+
 
     }
 
