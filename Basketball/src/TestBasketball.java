@@ -13,7 +13,7 @@ public class TestBasketball extends BasketballBaseListener{
     Hashtable<Integer, Integer> guestTeamShotsMissed = new Hashtable<>();
 
     Hashtable<Integer, Integer> homeTeamAssists = new Hashtable<>();
-    Hashtable<Integer, Integer> guestTeamAssits = new Hashtable<>();
+    Hashtable<Integer, Integer> guestTeamAssists = new Hashtable<>();
 
     Hashtable<Integer, Integer> homeTeamFouls = new Hashtable<>();
     Hashtable<Integer, Integer> guestTeamFouls = new Hashtable<>();
@@ -41,10 +41,6 @@ public class TestBasketball extends BasketballBaseListener{
     public void exitShot(BasketballParser.ShotContext ctx) {
 
         int player = Integer.parseInt(ctx.player().getText().substring(1));
-        int assistNum = -1;
-        if(ctx.assist() != null) {
-            assistNum = Integer.parseInt(ctx.assist().getText().substring(1));
-        }
 
         if (ctx.getText().charAt(3) == 'm') {
             //this is a made shot
@@ -65,10 +61,22 @@ public class TestBasketball extends BasketballBaseListener{
                 homeTeamShotsMissed.put(player, homeTeamShotsMissed.get(player) + Integer.parseInt(ctx.getText().substring(0, 1)));
             }
         }
+
+        int assistNum = -1;
+        if(ctx.assist() != null) {
+            assistNum = Integer.parseInt(ctx.assist().getText().substring(1));
+            if(ctx.player().getText().substring(0, 1).equals('h')){
+                homeTeamAssists.putIfAbsent(player, 0);
+                homeTeamAssists.put(assistNum, homeTeamAssists.get(player) + 1);
+            } else {
+                guestTeamAssists.putIfAbsent(player, 0);
+                guestTeamAssists.put(assistNum, guestTeamAssists.get(player) + 1);
+            }
+        }
     }
 
     public void prettyPrint(){
-        
+
     }
 
     public static void main(String[] args) throws Exception {
