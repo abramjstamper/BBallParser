@@ -10,14 +10,12 @@ action      : (shot
             SEMI;
 
 shot        : FGM player assist?
-            | FGA player assistAtt? rebound
+            | FGA player assist? rebound
             | ;
 
 rebound     : player;
 
 assist      : player;
-
-assistAtt   : player;
 
 player      : TEAM NUMBER?;
 
@@ -43,6 +41,6 @@ FGM: [2|3]'fgm';
 
 FGA: [2|3]'fga';
 
-TEAM : [H|G];
+TEAM : [h|g];
 
 WS : [ \r\t\n] -> skip ;

@@ -1,48 +1,87 @@
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
-import org.antlr.v4.runtime.misc.NotNull;
-import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 import java.io.FileInputStream;
 import java.util.Hashtable;
 
 public class TestBasketball extends BasketballBaseListener{
 
+    Hashtable<Integer, Integer> homeTeamShotsMade = new Hashtable<>();
+    Hashtable<Integer, Integer> guestTeamShotsMade = new Hashtable<>();
+
+    Hashtable<Integer, Integer> homeTeamShotsMissed = new Hashtable<>();
+    Hashtable<Integer, Integer> guestTeamShotsMissed = new Hashtable<>();
+
+    Hashtable<Integer, Integer> homeTeamAssists = new Hashtable<>();
+    Hashtable<Integer, Integer> guestTeamAssits = new Hashtable<>();
+
     Hashtable<Integer, Integer> homeTeamFouls = new Hashtable<>();
     Hashtable<Integer, Integer> guestTeamFouls = new Hashtable<>();
 
     @Override
     public void exitFoul(BasketballParser.FoulContext ctx) {
-        System.out.println("test");
-        String[] tempParse = ctx.getText().split("\\s+");
-        String playerNum = tempParse[1].substring(1);
-        if (tempParse[1].substring(0, 1) == "H") {
+        String tempParse = ctx.player().getText();
+        int playerNum = Integer.parseInt(tempParse.substring(1));
+        if (tempParse.substring(0, 1).equals("h")) {
+            homeTeamFouls.putIfAbsent(playerNum, 0);
             int nextFoulNum = homeTeamFouls.get(playerNum) + 1;
-            homeTeamFouls.put(Integer.parseInt(playerNum), nextFoulNum);
-            if (guestTeamFouls.get(playerNum) > 5)
-                System.out.println("Player Number: " + guestTeamFouls.get(playerNum));
+            homeTeamFouls.put(playerNum, nextFoulNum);
+            if (homeTeamFouls.get(playerNum) > 4)
+                System.out.println("Home Player " + playerNum + " has " + homeTeamFouls.get(playerNum) + " fouls.");
         } else {
+            guestTeamFouls.putIfAbsent(playerNum, 0);
             int nextFoulNum = guestTeamFouls.get(playerNum) + 1;
-            guestTeamFouls.put(Integer.parseInt(playerNum), nextFoulNum);
-            if (guestTeamFouls.get(playerNum) > 5)
-                System.out.println("Player Number: " + guestTeamFouls.get(playerNum));
+            guestTeamFouls.put(playerNum, nextFoulNum);
+            if (guestTeamFouls.get(playerNum) > 4)
+                System.out.println("Guest Player " + playerNum + " has " + guestTeamFouls.get(playerNum) + " fouls.");
         }
     }
-//    public void printFouls(int numFoulsPerGame){
-//        numFoulsPerGame--;
-//        for(int i : homeTeamFouls.keySet()){
-//            if(homeTeamFouls.get(i) > numFoulsPerGame)
-//                System.out.println("Player Number: " + numFoulsPerGame);
-//        }
-//        for(int i : guestTeamFouls.keySet()){
-//            if(guestTeamFouls.get(i) > numFoulsPerGame)
-//                System.out.println("Player Number: " + numFoulsPerGame);
-//        }
-//    }
+
+    @Override
+    public void exitShot(BasketballParser.ShotContext ctx) {
+
+        int player = Integer.parseInt(ctx.player().getText().substring(1));
+        int assistNum = -1;
+        if(ctx.assist() != null) {
+            assistNum = Integer.parseInt(ctx.assist().getText().substring(1));
+        }
+
+        if (ctx.getText().charAt(3) == 'm') {
+            //this is a made shot
+            if (ctx.player().getText().substring(0, 1).equals('h')) {
+                homeTeamShotsMade.putIfAbsent(player, 0);
+                homeTeamShotsMade.put(player, homeTeamShotsMade.get(player) + Integer.parseInt(ctx.getText().substring(0, 1)));
+            } else {
+                guestTeamShotsMade.putIfAbsent(player, 0);
+                guestTeamShotsMade.put(player, guestTeamShotsMade.get(player) + Integer.parseInt(ctx.getText().substring(0, 1)));
+            }
+        } else {
+            //this is a missed shot
+            if (!ctx.player().getText().substring(0, 1).equals('h')) {
+                guestTeamShotsMissed.putIfAbsent(player, 0);
+                guestTeamShotsMissed.put(player, guestTeamShotsMissed.get(player) + Integer.parseInt(ctx.getText().substring(0, 1)));
+            } else {
+                homeTeamShotsMissed.putIfAbsent(player, 0);
+                homeTeamShotsMissed.put(player, homeTeamShotsMissed.get(player) + Integer.parseInt(ctx.getText().substring(0, 1)));
+            }
+        }
+    }
+
+    public void prettyPrint(){
+        
+    }
 
     public static void main(String[] args) throws Exception {
 
-        System.out.println("test main");
+        System.out.println("Basktball Statistic Computer");
+        System.out.println();
+
+        if(args[0] == null){
+            System.out.println("Error! Missing game file argument");
+            System.exit(0);
+        } else {
+            System.out.println("Read in file " + args[0] + " for processing.");
+        }
 
         FileInputStream inputStream = new FileInputStream("test.txt");
         ANTLRInputStream input = new ANTLRInputStream(inputStream);
@@ -54,7 +93,6 @@ public class TestBasketball extends BasketballBaseListener{
         parser.addParseListener(test);
         parser.start();
 
+        test.prettyPrint();
     }
-
-    ;
 }
