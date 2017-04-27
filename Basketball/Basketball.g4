@@ -1,6 +1,8 @@
 grammar Basketball;
 
-start       : (shot
+start       : action+;
+
+action      : (shot
             | foul
             | turnover
             | CLOCK
@@ -41,6 +43,6 @@ FGM: [2|3]'fgm';
 
 FGA: [2|3]'fga';
 
-TEAM : [a-zA-Z];
+TEAM : [H|G];
 
 WS : [ \r\t\n] -> skip ;

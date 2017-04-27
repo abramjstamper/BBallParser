@@ -1,4 +1,4 @@
-// Generated from /Users/andrew/Documents/Languague structures/cos382LanguageStructs/Basketball/Basketball.g4 by ANTLR 4.6
+// Generated from /Users/abramjstamper/Documents/Junior Year/2nd Semester/COS382/cos382LanguageStructs/Basketball/Basketball.g4 by ANTLR 4.6
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -16,6 +16,16 @@ public interface BasketballListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitStart(BasketballParser.StartContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link BasketballParser#action}.
+	 * @param ctx the parse tree
+	 */
+	void enterAction(BasketballParser.ActionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link BasketballParser#action}.
+	 * @param ctx the parse tree
+	 */
+	void exitAction(BasketballParser.ActionContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link BasketballParser#shot}.
 	 * @param ctx the parse tree

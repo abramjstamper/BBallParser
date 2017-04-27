@@ -1,4 +1,4 @@
-// Generated from /Users/andrew/Documents/Languague structures/cos382LanguageStructs/Basketball/Basketball.g4 by ANTLR 4.6
+// Generated from /Users/abramjstamper/Documents/Junior Year/2nd Semester/COS382/cos382LanguageStructs/Basketball/Basketball.g4 by ANTLR 4.6
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -19,12 +19,12 @@ public class BasketballParser extends Parser {
 		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, CLOCK=6, QUARTERS=7, SEMI=8, NUMBER=9, 
 		FGM=10, FGA=11, TEAM=12, WS=13;
 	public static final int
-		RULE_start = 0, RULE_shot = 1, RULE_rebound = 2, RULE_assist = 3, RULE_assistAtt = 4, 
-		RULE_player = 5, RULE_turnover = 6, RULE_foul = 7, RULE_freethrow = 8, 
-		RULE_quarter = 9;
+		RULE_start = 0, RULE_action = 1, RULE_shot = 2, RULE_rebound = 3, RULE_assist = 4, 
+		RULE_assistAtt = 5, RULE_player = 6, RULE_turnover = 7, RULE_foul = 8, 
+		RULE_freethrow = 9, RULE_quarter = 10;
 	public static final String[] ruleNames = {
-		"start", "shot", "rebound", "assist", "assistAtt", "player", "turnover", 
-		"foul", "freethrow", "quarter"
+		"start", "action", "shot", "rebound", "assist", "assistAtt", "player", 
+		"turnover", "foul", "freethrow", "quarter"
 	};
 
 	private static final String[] _LITERAL_NAMES = {
@@ -84,19 +84,11 @@ public class BasketballParser extends Parser {
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 	public static class StartContext extends ParserRuleContext {
-		public TerminalNode SEMI() { return getToken(BasketballParser.SEMI, 0); }
-		public ShotContext shot() {
-			return getRuleContext(ShotContext.class,0);
+		public List<ActionContext> action() {
+			return getRuleContexts(ActionContext.class);
 		}
-		public FoulContext foul() {
-			return getRuleContext(FoulContext.class,0);
-		}
-		public TurnoverContext turnover() {
-			return getRuleContext(TurnoverContext.class,0);
-		}
-		public TerminalNode CLOCK() { return getToken(BasketballParser.CLOCK, 0); }
-		public QuarterContext quarter() {
-			return getRuleContext(QuarterContext.class,0);
+		public ActionContext action(int i) {
+			return getRuleContext(ActionContext.class,i);
 		}
 		public StartContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -120,48 +112,116 @@ public class BasketballParser extends Parser {
 	public final StartContext start() throws RecognitionException {
 		StartContext _localctx = new StartContext(_ctx, getState());
 		enterRule(_localctx, 0, RULE_start);
+		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(25);
+			setState(23); 
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			do {
+				{
+				{
+				setState(22);
+				action();
+				}
+				}
+				setState(25); 
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__0) | (1L << T__1) | (1L << T__4) | (1L << CLOCK) | (1L << SEMI) | (1L << FGM) | (1L << FGA))) != 0) );
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class ActionContext extends ParserRuleContext {
+		public TerminalNode SEMI() { return getToken(BasketballParser.SEMI, 0); }
+		public ShotContext shot() {
+			return getRuleContext(ShotContext.class,0);
+		}
+		public FoulContext foul() {
+			return getRuleContext(FoulContext.class,0);
+		}
+		public TurnoverContext turnover() {
+			return getRuleContext(TurnoverContext.class,0);
+		}
+		public TerminalNode CLOCK() { return getToken(BasketballParser.CLOCK, 0); }
+		public QuarterContext quarter() {
+			return getRuleContext(QuarterContext.class,0);
+		}
+		public ActionContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_action; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BasketballListener ) ((BasketballListener)listener).enterAction(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BasketballListener ) ((BasketballListener)listener).exitAction(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof BasketballVisitor ) return ((BasketballVisitor<? extends T>)visitor).visitAction(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final ActionContext action() throws RecognitionException {
+		ActionContext _localctx = new ActionContext(_ctx, getState());
+		enterRule(_localctx, 2, RULE_action);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(32);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case SEMI:
 			case FGM:
 			case FGA:
 				{
-				setState(20);
+				setState(27);
 				shot();
 				}
 				break;
 			case T__1:
 				{
-				setState(21);
+				setState(28);
 				foul();
 				}
 				break;
 			case T__0:
 				{
-				setState(22);
+				setState(29);
 				turnover();
 				}
 				break;
 			case CLOCK:
 				{
-				setState(23);
+				setState(30);
 				match(CLOCK);
 				}
 				break;
 			case T__4:
 				{
-				setState(24);
+				setState(31);
 				quarter();
 				}
 				break;
 			default:
 				throw new NoViableAltException(this);
 			}
-			setState(27);
+			setState(34);
 			match(SEMI);
 			}
 		}
@@ -212,25 +272,25 @@ public class BasketballParser extends Parser {
 
 	public final ShotContext shot() throws RecognitionException {
 		ShotContext _localctx = new ShotContext(_ctx, getState());
-		enterRule(_localctx, 2, RULE_shot);
+		enterRule(_localctx, 4, RULE_shot);
 		int _la;
 		try {
-			setState(42);
+			setState(49);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case FGM:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(29);
+				setState(36);
 				match(FGM);
-				setState(30);
+				setState(37);
 				player();
-				setState(32);
+				setState(39);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==TEAM) {
 					{
-					setState(31);
+					setState(38);
 					assist();
 					}
 				}
@@ -240,21 +300,21 @@ public class BasketballParser extends Parser {
 			case FGA:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(34);
+				setState(41);
 				match(FGA);
-				setState(35);
+				setState(42);
 				player();
-				setState(37);
+				setState(44);
 				_errHandler.sync(this);
-				switch ( getInterpreter().adaptivePredict(_input,2,_ctx) ) {
+				switch ( getInterpreter().adaptivePredict(_input,3,_ctx) ) {
 				case 1:
 					{
-					setState(36);
+					setState(43);
 					assistAtt();
 					}
 					break;
 				}
-				setState(39);
+				setState(46);
 				rebound();
 				}
 				break;
@@ -303,11 +363,11 @@ public class BasketballParser extends Parser {
 
 	public final ReboundContext rebound() throws RecognitionException {
 		ReboundContext _localctx = new ReboundContext(_ctx, getState());
-		enterRule(_localctx, 4, RULE_rebound);
+		enterRule(_localctx, 6, RULE_rebound);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(44);
+			setState(51);
 			player();
 			}
 		}
@@ -347,11 +407,11 @@ public class BasketballParser extends Parser {
 
 	public final AssistContext assist() throws RecognitionException {
 		AssistContext _localctx = new AssistContext(_ctx, getState());
-		enterRule(_localctx, 6, RULE_assist);
+		enterRule(_localctx, 8, RULE_assist);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(46);
+			setState(53);
 			player();
 			}
 		}
@@ -391,11 +451,11 @@ public class BasketballParser extends Parser {
 
 	public final AssistAttContext assistAtt() throws RecognitionException {
 		AssistAttContext _localctx = new AssistAttContext(_ctx, getState());
-		enterRule(_localctx, 8, RULE_assistAtt);
+		enterRule(_localctx, 10, RULE_assistAtt);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(48);
+			setState(55);
 			player();
 			}
 		}
@@ -434,19 +494,19 @@ public class BasketballParser extends Parser {
 
 	public final PlayerContext player() throws RecognitionException {
 		PlayerContext _localctx = new PlayerContext(_ctx, getState());
-		enterRule(_localctx, 10, RULE_player);
+		enterRule(_localctx, 12, RULE_player);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(50);
+			setState(57);
 			match(TEAM);
-			setState(52);
+			setState(59);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==NUMBER) {
 				{
-				setState(51);
+				setState(58);
 				match(NUMBER);
 				}
 			}
@@ -492,28 +552,28 @@ public class BasketballParser extends Parser {
 
 	public final TurnoverContext turnover() throws RecognitionException {
 		TurnoverContext _localctx = new TurnoverContext(_ctx, getState());
-		enterRule(_localctx, 12, RULE_turnover);
+		enterRule(_localctx, 14, RULE_turnover);
 		try {
-			setState(60);
+			setState(67);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,5,_ctx) ) {
+			switch ( getInterpreter().adaptivePredict(_input,6,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(54);
+				setState(61);
 				match(T__0);
-				setState(55);
+				setState(62);
 				player();
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(56);
+				setState(63);
 				match(T__0);
-				setState(57);
+				setState(64);
 				player();
-				setState(58);
+				setState(65);
 				player();
 				}
 				break;
@@ -562,43 +622,43 @@ public class BasketballParser extends Parser {
 
 	public final FoulContext foul() throws RecognitionException {
 		FoulContext _localctx = new FoulContext(_ctx, getState());
-		enterRule(_localctx, 14, RULE_foul);
+		enterRule(_localctx, 16, RULE_foul);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(62);
-			match(T__1);
-			setState(63);
-			player();
-			setState(64);
-			match(CLOCK);
-			setState(66);
-			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,6,_ctx) ) {
-			case 1:
-				{
-				setState(65);
-				freethrow();
-				}
-				break;
-			}
 			setState(69);
+			match(T__1);
+			setState(70);
+			player();
+			setState(71);
+			match(CLOCK);
+			setState(73);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,7,_ctx) ) {
 			case 1:
 				{
-				setState(68);
+				setState(72);
 				freethrow();
 				}
 				break;
 			}
-			setState(72);
+			setState(76);
+			_errHandler.sync(this);
+			switch ( getInterpreter().adaptivePredict(_input,8,_ctx) ) {
+			case 1:
+				{
+				setState(75);
+				freethrow();
+				}
+				break;
+			}
+			setState(79);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==T__2 || _la==T__3) {
 				{
-				setState(71);
+				setState(78);
 				freethrow();
 				}
 			}
@@ -644,28 +704,28 @@ public class BasketballParser extends Parser {
 
 	public final FreethrowContext freethrow() throws RecognitionException {
 		FreethrowContext _localctx = new FreethrowContext(_ctx, getState());
-		enterRule(_localctx, 16, RULE_freethrow);
+		enterRule(_localctx, 18, RULE_freethrow);
 		try {
-			setState(80);
+			setState(87);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case T__2:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(74);
+				setState(81);
 				match(T__2);
-				setState(75);
+				setState(82);
 				player();
 				}
 				break;
 			case T__3:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(76);
+				setState(83);
 				match(T__3);
-				setState(77);
+				setState(84);
 				player();
-				setState(78);
+				setState(85);
 				rebound();
 				}
 				break;
@@ -708,15 +768,15 @@ public class BasketballParser extends Parser {
 
 	public final QuarterContext quarter() throws RecognitionException {
 		QuarterContext _localctx = new QuarterContext(_ctx, getState());
-		enterRule(_localctx, 18, RULE_quarter);
+		enterRule(_localctx, 20, RULE_quarter);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(82);
+			setState(89);
 			match(T__4);
-			setState(83);
+			setState(90);
 			match(QUARTERS);
-			setState(84);
+			setState(91);
 			match(CLOCK);
 			}
 		}
@@ -732,28 +792,30 @@ public class BasketballParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\17Y\4\2\t\2\4\3\t"+
-		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t\13\3"+
-		"\2\3\2\3\2\3\2\3\2\5\2\34\n\2\3\2\3\2\3\3\3\3\3\3\5\3#\n\3\3\3\3\3\3\3"+
-		"\5\3(\n\3\3\3\3\3\3\3\5\3-\n\3\3\4\3\4\3\5\3\5\3\6\3\6\3\7\3\7\5\7\67"+
-		"\n\7\3\b\3\b\3\b\3\b\3\b\3\b\5\b?\n\b\3\t\3\t\3\t\3\t\5\tE\n\t\3\t\5\t"+
-		"H\n\t\3\t\5\tK\n\t\3\n\3\n\3\n\3\n\3\n\3\n\5\nS\n\n\3\13\3\13\3\13\3\13"+
-		"\3\13\2\2\f\2\4\6\b\n\f\16\20\22\24\2\2\\\2\33\3\2\2\2\4,\3\2\2\2\6.\3"+
-		"\2\2\2\b\60\3\2\2\2\n\62\3\2\2\2\f\64\3\2\2\2\16>\3\2\2\2\20@\3\2\2\2"+
-		"\22R\3\2\2\2\24T\3\2\2\2\26\34\5\4\3\2\27\34\5\20\t\2\30\34\5\16\b\2\31"+
-		"\34\7\b\2\2\32\34\5\24\13\2\33\26\3\2\2\2\33\27\3\2\2\2\33\30\3\2\2\2"+
-		"\33\31\3\2\2\2\33\32\3\2\2\2\34\35\3\2\2\2\35\36\7\n\2\2\36\3\3\2\2\2"+
-		"\37 \7\f\2\2 \"\5\f\7\2!#\5\b\5\2\"!\3\2\2\2\"#\3\2\2\2#-\3\2\2\2$%\7"+
-		"\r\2\2%\'\5\f\7\2&(\5\n\6\2\'&\3\2\2\2\'(\3\2\2\2()\3\2\2\2)*\5\6\4\2"+
-		"*-\3\2\2\2+-\3\2\2\2,\37\3\2\2\2,$\3\2\2\2,+\3\2\2\2-\5\3\2\2\2./\5\f"+
-		"\7\2/\7\3\2\2\2\60\61\5\f\7\2\61\t\3\2\2\2\62\63\5\f\7\2\63\13\3\2\2\2"+
-		"\64\66\7\16\2\2\65\67\7\13\2\2\66\65\3\2\2\2\66\67\3\2\2\2\67\r\3\2\2"+
-		"\289\7\3\2\29?\5\f\7\2:;\7\3\2\2;<\5\f\7\2<=\5\f\7\2=?\3\2\2\2>8\3\2\2"+
-		"\2>:\3\2\2\2?\17\3\2\2\2@A\7\4\2\2AB\5\f\7\2BD\7\b\2\2CE\5\22\n\2DC\3"+
-		"\2\2\2DE\3\2\2\2EG\3\2\2\2FH\5\22\n\2GF\3\2\2\2GH\3\2\2\2HJ\3\2\2\2IK"+
-		"\5\22\n\2JI\3\2\2\2JK\3\2\2\2K\21\3\2\2\2LM\7\5\2\2MS\5\f\7\2NO\7\6\2"+
-		"\2OP\5\f\7\2PQ\5\6\4\2QS\3\2\2\2RL\3\2\2\2RN\3\2\2\2S\23\3\2\2\2TU\7\7"+
-		"\2\2UV\7\t\2\2VW\7\b\2\2W\25\3\2\2\2\f\33\"\',\66>DGJR";
+		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\17`\4\2\t\2\4\3\t"+
+		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t\13\4"+
+		"\f\t\f\3\2\6\2\32\n\2\r\2\16\2\33\3\3\3\3\3\3\3\3\3\3\5\3#\n\3\3\3\3\3"+
+		"\3\4\3\4\3\4\5\4*\n\4\3\4\3\4\3\4\5\4/\n\4\3\4\3\4\3\4\5\4\64\n\4\3\5"+
+		"\3\5\3\6\3\6\3\7\3\7\3\b\3\b\5\b>\n\b\3\t\3\t\3\t\3\t\3\t\3\t\5\tF\n\t"+
+		"\3\n\3\n\3\n\3\n\5\nL\n\n\3\n\5\nO\n\n\3\n\5\nR\n\n\3\13\3\13\3\13\3\13"+
+		"\3\13\3\13\5\13Z\n\13\3\f\3\f\3\f\3\f\3\f\2\2\r\2\4\6\b\n\f\16\20\22\24"+
+		"\26\2\2c\2\31\3\2\2\2\4\"\3\2\2\2\6\63\3\2\2\2\b\65\3\2\2\2\n\67\3\2\2"+
+		"\2\f9\3\2\2\2\16;\3\2\2\2\20E\3\2\2\2\22G\3\2\2\2\24Y\3\2\2\2\26[\3\2"+
+		"\2\2\30\32\5\4\3\2\31\30\3\2\2\2\32\33\3\2\2\2\33\31\3\2\2\2\33\34\3\2"+
+		"\2\2\34\3\3\2\2\2\35#\5\6\4\2\36#\5\22\n\2\37#\5\20\t\2 #\7\b\2\2!#\5"+
+		"\26\f\2\"\35\3\2\2\2\"\36\3\2\2\2\"\37\3\2\2\2\" \3\2\2\2\"!\3\2\2\2#"+
+		"$\3\2\2\2$%\7\n\2\2%\5\3\2\2\2&\'\7\f\2\2\')\5\16\b\2(*\5\n\6\2)(\3\2"+
+		"\2\2)*\3\2\2\2*\64\3\2\2\2+,\7\r\2\2,.\5\16\b\2-/\5\f\7\2.-\3\2\2\2./"+
+		"\3\2\2\2/\60\3\2\2\2\60\61\5\b\5\2\61\64\3\2\2\2\62\64\3\2\2\2\63&\3\2"+
+		"\2\2\63+\3\2\2\2\63\62\3\2\2\2\64\7\3\2\2\2\65\66\5\16\b\2\66\t\3\2\2"+
+		"\2\678\5\16\b\28\13\3\2\2\29:\5\16\b\2:\r\3\2\2\2;=\7\16\2\2<>\7\13\2"+
+		"\2=<\3\2\2\2=>\3\2\2\2>\17\3\2\2\2?@\7\3\2\2@F\5\16\b\2AB\7\3\2\2BC\5"+
+		"\16\b\2CD\5\16\b\2DF\3\2\2\2E?\3\2\2\2EA\3\2\2\2F\21\3\2\2\2GH\7\4\2\2"+
+		"HI\5\16\b\2IK\7\b\2\2JL\5\24\13\2KJ\3\2\2\2KL\3\2\2\2LN\3\2\2\2MO\5\24"+
+		"\13\2NM\3\2\2\2NO\3\2\2\2OQ\3\2\2\2PR\5\24\13\2QP\3\2\2\2QR\3\2\2\2R\23"+
+		"\3\2\2\2ST\7\5\2\2TZ\5\16\b\2UV\7\6\2\2VW\5\16\b\2WX\5\b\5\2XZ\3\2\2\2"+
+		"YS\3\2\2\2YU\3\2\2\2Z\25\3\2\2\2[\\\7\7\2\2\\]\7\t\2\2]^\7\b\2\2^\27\3"+
+		"\2\2\2\r\33\").\63=EKNQY";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
