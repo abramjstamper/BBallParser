@@ -7,6 +7,9 @@ import java.util.Hashtable;
 
 public class TestBasketball extends BasketballBaseListener{
 
+    boolean[] homePlayers = new boolean[100];
+    boolean[] guestPlayers = new boolean[100];
+
     Hashtable<Integer, Integer> homeTeamShotsMade = new Hashtable<>();
     Hashtable<Integer, Integer> guestTeamShotsMade = new Hashtable<>();
 
@@ -112,6 +115,14 @@ public class TestBasketball extends BasketballBaseListener{
     }
 
     @Override
+    public void exitPlayer(BasketballParser.PlayerContext ctx) {
+        if(ctx.getText().substring(0,1).equals("h"))
+            homePlayers[Integer.parseInt(ctx.NUMBER().getText())] = true;
+        else
+            guestPlayers[Integer.parseInt(ctx.NUMBER().getText())] = true;
+    }
+
+    @Override
     public void exitShot(BasketballParser.ShotContext ctx) {
 
         int player = Integer.parseInt(ctx.player().getText().substring(1));
@@ -163,79 +174,19 @@ public class TestBasketball extends BasketballBaseListener{
     }
 
     public ArrayList<Integer> getHomePlayers(){
-        Bag<Integer> homePlayers = new Bag<>();
-
-        for (int player: homeTeamShotsMade.keySet()) {
-            homePlayers.add(player);
-        }
-        for (int player: homeTeamShotsMissed.keySet()) {
-            homePlayers.add(player);
-        }
-        for (int player: homeTeamAssists.keySet()){
-            homePlayers.add(player);
-        }
-        for(int player: homeTeamFouls.keySet()){
-            homePlayers.add(player);
-        }
-        for(int player: homeTeamFreeThrowAttempt.keySet()){
-            homePlayers.add(player);
-        }
-        for(int player: homeTeamFreeThrowMade.keySet()){
-            homePlayers.add(player);
-        }
-        for(int player: homeTeamRebounds.keySet()){
-            homePlayers.add(player);
-        }
-        for(int player: homeTeamTurnover.keySet()){
-            homePlayers.add(player);
-        }
-        for(int player: homeTeamSteal.keySet()){
-            homePlayers.add(player);
-        }
         ArrayList<Integer> players = new ArrayList<>();
-
-        for(int player: homePlayers){
-            players.add(player);
+        for(int i = 0; i < homePlayers.length; i++){
+            if(homePlayers[i] == true)
+                players.add(i);
         }
-
         return players;
     }
-    public ArrayList<Integer> getAwayPlayers(){
-        Bag<Integer> awayPlayers = new Bag<>();
-
-        for (int player: guestTeamShotsMade.keySet()) {
-            awayPlayers.add(player);
-        }
-        for (int player: guestTeamShotsMissed.keySet()) {
-            awayPlayers.add(player);
-        }
-        for (int player: guestTeamAssists.keySet()){
-            awayPlayers.add(player);
-        }
-        for(int player: guestTeamFouls.keySet()){
-            awayPlayers.add(player);
-        }
-        for(int player: guestTeamFreeThrowAttempt.keySet()){
-            awayPlayers.add(player);
-        }
-        for(int player: guestTeamFreeThrowMade.keySet()){
-            awayPlayers.add(player);
-        }
-        for(int player: guestTeamRebounds.keySet()){
-            awayPlayers.add(player);
-        }
-        for(int player: guestTeamTurnover.keySet()){
-            awayPlayers.add(player);
-        }
-        for(int player: guestTeamSteal.keySet()){
-            awayPlayers.add(player);
-        }
+    public ArrayList<Integer> getGuestPlayers(){
         ArrayList<Integer> players = new ArrayList<>();
-
-        for(int player: awayPlayers){
-            players.add(player);
+        for(int i = 0; i < guestPlayers.length; i++){
+            if(guestPlayers[i] == true)
+                players.add(i);
         }
-
         return players;
     }
 
@@ -252,7 +203,7 @@ public class TestBasketball extends BasketballBaseListener{
 
     public void prettyPrint(){
         System.out.println("\nGame Statistics");
-        ArrayList<Integer> awayPlayers = getAwayPlayers();
+        ArrayList<Integer> awayPlayers = getGuestPlayers();
         ArrayList<Integer> homePlayers = getHomePlayers();
 
         System.out.println("Away Team Statistics");
