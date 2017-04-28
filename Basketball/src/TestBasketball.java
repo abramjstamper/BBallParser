@@ -274,8 +274,7 @@ public class TestBasketball extends BasketballBaseListener{
     public static void main(String[] args) throws Exception {
 
         System.out.println("Basktball Statistic Computer");
-        //TODO: fix this so it throws exception without arguments
-        if(args[0] == null){
+        if(args.length == 0){
             System.out.println("Error! Missing game file argument");
             System.exit(0);
         } else {
