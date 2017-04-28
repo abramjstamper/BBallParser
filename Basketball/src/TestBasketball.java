@@ -28,6 +28,44 @@ public class TestBasketball extends BasketballBaseListener{
     Hashtable<Integer, Integer> homeTeamRebounds = new Hashtable<>();
     Hashtable<Integer, Integer> guestTeamRebounds = new Hashtable<>();
 
+    Hashtable<Integer, Integer> homeTeamTurnover = new Hashtable<>();
+    Hashtable<Integer, Integer> guestTeamTurnover = new Hashtable<>();
+
+    Hashtable<Integer, Integer> homeTeamSteal = new Hashtable<>();
+    Hashtable<Integer, Integer> guestTeamSteal = new Hashtable<>();
+    @Override
+    public void exitTurnover(BasketballParser.TurnoverContext ctx){
+        String tempParse = ctx.player(0).getText();
+        int playerNum = Integer.parseInt(tempParse.substring(1));
+        if (tempParse.substring(0, 1).equals("h")) {
+            if(ctx.getText().substring(0,1) == "t"){
+                homeTeamTurnover.putIfAbsent(playerNum, 0);
+                int nextTurnoverNum = homeTeamTurnover.get(playerNum) + 1;
+                homeTeamTurnover.put(playerNum, nextTurnoverNum);
+            }
+        } else {
+                guestTeamTurnover.putIfAbsent(playerNum, 0);
+                int nextAwayTurnoverNum = guestTeamTurnover.get(playerNum) + 1;
+                guestTeamTurnover.put(playerNum, nextAwayTurnoverNum);
+        }
+
+        //Steals
+        if(ctx.player(1) != null){
+            String stealPlayer = ctx.player(1).getText();
+            if (tempParse.substring(0, 1).equals("h")) {
+                if(ctx.getText().substring(0,1) == "t"){
+                    homeTeamSteal.putIfAbsent(playerNum, 0);
+                    int nextTurnoverNum = homeTeamSteal.get(playerNum) + 1;
+                    homeTeamSteal.put(playerNum, nextTurnoverNum);
+                }
+            } else {
+                guestTeamSteal.putIfAbsent(playerNum, 0);
+                int nextAwayTurnoverNum = guestTeamSteal.get(playerNum) + 1;
+                guestTeamSteal.put(playerNum, nextAwayTurnoverNum);
+            }
+        }
+    }
+
     @Override
     public void exitFreethrow(BasketballParser.FreethrowContext ctx) {
         String tempParse = ctx.player().getText();
@@ -148,6 +186,12 @@ public class TestBasketball extends BasketballBaseListener{
         for(int player: homeTeamRebounds.keySet()){
             homePlayers.add(player);
         }
+        for(int player: homeTeamTurnover.keySet()){
+            homePlayers.add(player);
+        }
+        for(int player: homeTeamSteal.keySet()){
+            homePlayers.add(player);
+        }
         ArrayList<Integer> players = new ArrayList<>();
 
         for(int player: homePlayers){
@@ -180,6 +224,12 @@ public class TestBasketball extends BasketballBaseListener{
         for(int player: guestTeamRebounds.keySet()){
             awayPlayers.add(player);
         }
+        for(int player: guestTeamTurnover.keySet()){
+            awayPlayers.add(player);
+        }
+        for(int player: guestTeamSteal.keySet()){
+            awayPlayers.add(player);
+        }
         ArrayList<Integer> players = new ArrayList<>();
 
         for(int player: awayPlayers){
@@ -205,17 +255,17 @@ public class TestBasketball extends BasketballBaseListener{
         ArrayList<Integer> homePlayers = getHomePlayers();
 
         System.out.println("Away Team Statistics");
-        System.out.println(" P  | MA   MS   FTA   FTM   RB   A   F   T   S");
+        System.out.println(" P  | MA   MS   FTA   FTM   RB    A    F   T   S");
         for(int i = 0; i < awayPlayers.size(); i++){
-            String printText = " " + awayPlayers.get(i) + " | " + nullToZero(guestTeamShotsMade.get(awayPlayers.get(i))) + "    " + nullToZero(guestTeamShotsMissed.get(awayPlayers.get(i))) + "    " + nullToZero(guestTeamFreeThrowAttempt.get(awayPlayers.get(i)))+ "      " +  nullToZero(guestTeamFreeThrowMade.get(awayPlayers.get(i)))+ "     " + nullToZero(guestTeamRebounds.get(awayPlayers.get(i))) + "    "+ nullToZero(guestTeamAssists.get(awayPlayers.get(i))) + "    " + nullToZero(guestTeamFouls.get(awayPlayers.get(i)));
+            String printText = " " + awayPlayers.get(i) + " | " + nullToZero(guestTeamShotsMade.get(awayPlayers.get(i))) + "    " + nullToZero(guestTeamShotsMissed.get(awayPlayers.get(i))) + "    " + nullToZero(guestTeamFreeThrowAttempt.get(awayPlayers.get(i)))+ "      " +  nullToZero(guestTeamFreeThrowMade.get(awayPlayers.get(i)))+ "     " + nullToZero(guestTeamRebounds.get(awayPlayers.get(i))) + "    "+ nullToZero(guestTeamAssists.get(awayPlayers.get(i))) + "    " + nullToZero(guestTeamFouls.get(awayPlayers.get(i))) + "    " + nullToZero(guestTeamTurnover.get(awayPlayers.get(i))) + "    " + nullToZero(guestTeamSteal.get(awayPlayers.get(i)));
             System.out.print(printText);
             System.out.println();
         }
 
         System.out.println("Home Team Statistics");
-        System.out.println(" P | MA   MS   FTA   FTM   RB   A   F   T   S");
+        System.out.println(" P  | MA   MS   FTA   FTM  RB   A    F   T   S");
         for(int i = 0; i < homePlayers.size(); i++){
-            String printText = " " + homePlayers.get(i) + " | " + nullToZero(homeTeamShotsMade.get(homePlayers.get(i))) + "    " + nullToZero(homeTeamShotsMissed.get(homePlayers.get(i))) + "    "+ nullToZero(homeTeamFreeThrowAttempt.get(homePlayers.get(i)))+ "     "+ nullToZero(homeTeamFreeThrowMade.get(homePlayers.get(i)))+ "    " + nullToZero(homeTeamRebounds.get(homePlayers.get(i))) + "    "+ nullToZero(homeTeamAssists.get(homePlayers.get(i))) + "    " + nullToZero(homeTeamFouls.get(homePlayers.get(i)));
+            String printText = " " + homePlayers.get(i) + " | " + nullToZero(homeTeamShotsMade.get(homePlayers.get(i))) + "    " + nullToZero(homeTeamShotsMissed.get(homePlayers.get(i))) + "    "+ nullToZero(homeTeamFreeThrowAttempt.get(homePlayers.get(i)))+ "     "+ nullToZero(homeTeamFreeThrowMade.get(homePlayers.get(i)))+ "    " + nullToZero(homeTeamRebounds.get(homePlayers.get(i))) + "    "+ nullToZero(homeTeamAssists.get(homePlayers.get(i))) + "    " + nullToZero(homeTeamFouls.get(homePlayers.get(i))) + "    " + nullToZero(homeTeamTurnover.get(homePlayers.get(i))) + "    " + nullToZero(homeTeamSteal.get(awayPlayers.get(i)));
             System.out.print(printText);
             System.out.println();
         }
