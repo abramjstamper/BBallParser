@@ -76,9 +76,8 @@ public class TestBasketball extends BasketballBaseListener{
         }
     }
 
-    public void prettyPrint(){
+    public ArrayList<Integer> getHomePlayers(){
         Bag<Integer> homePlayers = new Bag<>();
-        Bag<Integer> guestPlayers = new Bag<>();
 
         for (int player: homeTeamShotsMade.keySet()) {
             homePlayers.add(player);
@@ -92,13 +91,56 @@ public class TestBasketball extends BasketballBaseListener{
         for(int player: homeTeamFouls.keySet()){
             homePlayers.add(player);
         }
+        ArrayList<Integer> players = new ArrayList<>();
 
         for(int player: homePlayers){
-            System.out.println(player);
+            players.add(player);
         }
 
+        return players;
+    }
+    public ArrayList<Integer> getAwayPlayers(){
+        Bag<Integer> awayPlayers = new Bag<>();
 
+        for (int player: guestTeamShotsMade.keySet()) {
+            awayPlayers.add(player);
+        }
+        for (int player: guestTeamShotsMissed.keySet()) {
+            awayPlayers.add(player);
+        }
+        for (int player: guestTeamAssists.keySet()){
+            awayPlayers.add(player);
+        }
+        for(int player: guestTeamFouls.keySet()){
+            awayPlayers.add(player);
+        }
+        ArrayList<Integer> players = new ArrayList<>();
 
+        for(int player: awayPlayers){
+            players.add(player);
+        }
+
+        return players;
+    }
+
+    public void prettyPrint(){
+        ArrayList<Integer> awayPlayers = getAwayPlayers();
+        ArrayList<Integer> homePlayers = getHomePlayers();
+
+        System.out.println("Away Team Statistics");
+        System.out.println(" P | MA   MS   FTA   FTM   RB   A   F");
+        for(int i = 0; i < awayPlayers.size(); i++){
+            String printText = " " + awayPlayers.get(i) + " | " + guestTeamShotsMade.get(awayPlayers.get(i)) + "   " + guestTeamShotsMissed.get(awayPlayers.get(i)) + "   " + guestTeamAssists.get(awayPlayers.get(i)) + "   " + guestTeamFouls.get(awayPlayers.get(i));
+            System.out.print(printText);
+            System.out.println();
+        }
+
+        System.out.println("Home Team Statistics");
+        for(int i = 0; i < homePlayers.size(); i++){
+            String printText = " " + homePlayers.get(i) + " | " + homeTeamShotsMade.get(awayPlayers.get(i)) + "   " + homeTeamShotsMissed.get(awayPlayers.get(i)) + "   " + homeTeamAssists.get(awayPlayers.get(i)) + "   " + homeTeamFouls.get(awayPlayers.get(i));
+            System.out.print(printText);
+            System.out.println();
+        }
     }
 
     public static void main(String[] args) throws Exception {
