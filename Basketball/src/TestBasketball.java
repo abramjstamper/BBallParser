@@ -146,14 +146,14 @@ public class TestBasketball extends BasketballBaseListener{
     public static void main(String[] args) throws Exception {
 
         System.out.println("Basktball Statistic Computer");
-        System.out.println();
-
+        //TODO: fix this so it throws exception without arguments
         if(args[0] == null){
             System.out.println("Error! Missing game file argument");
             System.exit(0);
         } else {
             System.out.println("Read in file " + args[0] + " for processing.");
         }
+        System.out.println();
 
         FileInputStream inputStream = new FileInputStream("test.txt");
         ANTLRInputStream input = new ANTLRInputStream(inputStream);
