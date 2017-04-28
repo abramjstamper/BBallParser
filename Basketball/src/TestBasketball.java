@@ -137,7 +137,7 @@ public class TestBasketball extends BasketballBaseListener{
         ArrayList<Integer> homePlayers = getHomePlayers();
 
         System.out.println("Away Team Statistics");
-        System.out.println(" P | MA   MS   FTA   FTM   RB   A   F");
+        System.out.println(" P | MA   MS   FTA   FTM   RB   A   F   T   S");
         for(int i = 0; i < awayPlayers.size(); i++){
             String printText = " " + awayPlayers.get(i) + " | " + nullToZero(guestTeamShotsMade.get(awayPlayers.get(i))) + "   " + nullToZero(guestTeamShotsMissed.get(awayPlayers.get(i))) + "   " + nullToZero(guestTeamAssists.get(awayPlayers.get(i))) + "   " + nullToZero(guestTeamFouls.get(awayPlayers.get(i)));
             System.out.print(printText);
