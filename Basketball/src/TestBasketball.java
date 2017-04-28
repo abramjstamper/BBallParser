@@ -251,24 +251,26 @@ public class TestBasketball extends BasketballBaseListener{
     }
 
     public void prettyPrint(){
+        System.out.println("\nGame Statistics");
         ArrayList<Integer> awayPlayers = getAwayPlayers();
         ArrayList<Integer> homePlayers = getHomePlayers();
 
         System.out.println("Away Team Statistics");
-        System.out.println(" P  | MA   MS   FTA   FTM   RB    A    F   T   S");
+        System.out.println(" P  | MA   MS   FTA   FTM   RB    A    F    T    S");
         for(int i = 0; i < awayPlayers.size(); i++){
-            String printText = " " + awayPlayers.get(i) + " | " + nullToZero(guestTeamShotsMade.get(awayPlayers.get(i))) + "    " + nullToZero(guestTeamShotsMissed.get(awayPlayers.get(i))) + "    " + nullToZero(guestTeamFreeThrowAttempt.get(awayPlayers.get(i)))+ "      " +  nullToZero(guestTeamFreeThrowMade.get(awayPlayers.get(i)))+ "     " + nullToZero(guestTeamRebounds.get(awayPlayers.get(i))) + "    "+ nullToZero(guestTeamAssists.get(awayPlayers.get(i))) + "    " + nullToZero(guestTeamFouls.get(awayPlayers.get(i))) + "    " + nullToZero(guestTeamTurnover.get(awayPlayers.get(i))) + "    " + nullToZero(guestTeamSteal.get(awayPlayers.get(i)));
+            String printText = " " + awayPlayers.get(i) + " | " + nullToZero(guestTeamShotsMade.get(awayPlayers.get(i))) + "    " + nullToZero(guestTeamShotsMissed.get(awayPlayers.get(i))) + "     " + nullToZero(guestTeamFreeThrowAttempt.get(awayPlayers.get(i)))+ "     " +  nullToZero(guestTeamFreeThrowMade.get(awayPlayers.get(i)))+ "     " + nullToZero(guestTeamRebounds.get(awayPlayers.get(i))) + "    "+ nullToZero(guestTeamAssists.get(awayPlayers.get(i))) + "    " + nullToZero(guestTeamFouls.get(awayPlayers.get(i))) + "    " + nullToZero(guestTeamTurnover.get(awayPlayers.get(i))) + "    " + nullToZero(guestTeamSteal.get(awayPlayers.get(i)));
             System.out.print(printText);
             System.out.println();
         }
 
         System.out.println("Home Team Statistics");
-        System.out.println(" P  | MA   MS   FTA   FTM  RB   A    F   T   S");
+        System.out.println(" P  | MA   MS   FTA   FTM   RB   A    F    T    S");
         for(int i = 0; i < homePlayers.size(); i++){
-            String printText = " " + homePlayers.get(i) + " | " + nullToZero(homeTeamShotsMade.get(homePlayers.get(i))) + "    " + nullToZero(homeTeamShotsMissed.get(homePlayers.get(i))) + "    "+ nullToZero(homeTeamFreeThrowAttempt.get(homePlayers.get(i)))+ "     "+ nullToZero(homeTeamFreeThrowMade.get(homePlayers.get(i)))+ "    " + nullToZero(homeTeamRebounds.get(homePlayers.get(i))) + "    "+ nullToZero(homeTeamAssists.get(homePlayers.get(i))) + "    " + nullToZero(homeTeamFouls.get(homePlayers.get(i))) + "    " + nullToZero(homeTeamTurnover.get(homePlayers.get(i))) + "    " + nullToZero(homeTeamSteal.get(awayPlayers.get(i)));
+            String printText = " " + homePlayers.get(i) + " | " + nullToZero(homeTeamShotsMade.get(homePlayers.get(i))) + "    " + nullToZero(homeTeamShotsMissed.get(homePlayers.get(i))) + "     "+ nullToZero(homeTeamFreeThrowAttempt.get(homePlayers.get(i)))+ "     "+ nullToZero(homeTeamFreeThrowMade.get(homePlayers.get(i)))+ "    " + nullToZero(homeTeamRebounds.get(homePlayers.get(i))) + "    "+ nullToZero(homeTeamAssists.get(homePlayers.get(i))) + "    " + nullToZero(homeTeamFouls.get(homePlayers.get(i))) + "    " + nullToZero(homeTeamTurnover.get(homePlayers.get(i))) + "    " + nullToZero(homeTeamSteal.get(awayPlayers.get(i)));
             System.out.print(printText);
             System.out.println();
         }
+        System.out.println("End Game Statistics");
     }
 
     public static void main(String[] args) throws Exception {
@@ -291,6 +293,7 @@ public class TestBasketball extends BasketballBaseListener{
         TestBasketball test = new TestBasketball();
         parser.addParseListener(test);
         parser.start();
+        System.out.println("Finished Parsing file");
 
         test.prettyPrint();
     }
