@@ -123,6 +123,15 @@ public class TestBasketball extends BasketballBaseListener{
         return players;
     }
 
+    public int nullToZero(Integer i){
+        if(i == null){
+            return 0;
+        }
+        else {
+            return i;
+        }
+    }
+
     public void prettyPrint(){
         ArrayList<Integer> awayPlayers = getAwayPlayers();
         ArrayList<Integer> homePlayers = getHomePlayers();
@@ -130,14 +139,14 @@ public class TestBasketball extends BasketballBaseListener{
         System.out.println("Away Team Statistics");
         System.out.println(" P | MA   MS   FTA   FTM   RB   A   F");
         for(int i = 0; i < awayPlayers.size(); i++){
-            String printText = " " + awayPlayers.get(i) + " | " + guestTeamShotsMade.get(awayPlayers.get(i)) + "   " + guestTeamShotsMissed.get(awayPlayers.get(i)) + "   " + guestTeamAssists.get(awayPlayers.get(i)) + "   " + guestTeamFouls.get(awayPlayers.get(i));
+            String printText = " " + awayPlayers.get(i) + " | " + nullToZero(guestTeamShotsMade.get(awayPlayers.get(i))) + "   " + nullToZero(guestTeamShotsMissed.get(awayPlayers.get(i))) + "   " + nullToZero(guestTeamAssists.get(awayPlayers.get(i))) + "   " + nullToZero(guestTeamFouls.get(awayPlayers.get(i)));
             System.out.print(printText);
             System.out.println();
         }
 
         System.out.println("Home Team Statistics");
         for(int i = 0; i < homePlayers.size(); i++){
-            String printText = " " + homePlayers.get(i) + " | " + homeTeamShotsMade.get(awayPlayers.get(i)) + "   " + homeTeamShotsMissed.get(awayPlayers.get(i)) + "   " + homeTeamAssists.get(awayPlayers.get(i)) + "   " + homeTeamFouls.get(awayPlayers.get(i));
+            String printText = " " + homePlayers.get(i) + " | " + nullToZero(homeTeamShotsMade.get(awayPlayers.get(i))) + "   " + nullToZero(homeTeamShotsMissed.get(awayPlayers.get(i))) + "   " + nullToZero(homeTeamAssists.get(awayPlayers.get(i))) + "   " + nullToZero(homeTeamFouls.get(awayPlayers.get(i)));
             System.out.print(printText);
             System.out.println();
         }
