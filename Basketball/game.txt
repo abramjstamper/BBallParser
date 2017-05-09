@@ -4,9 +4,30 @@
 f g44 3:33;
 2fgm h33;
 3fga g35;
-f g37 2:26;
+f g37 2:26 m h44 a h44 g35;
+2fgm h44;
+2fga h44;
+f g38 0:19;
+2fgm h44;
+
 
 // q2
 3fgm h33;
 2fgm g35;
+f h33 6:21;
+2fga h21 h23;
+2fga h23;
+2fgm g35;
+2fgm h33;
+3fgm h33 h12;
 
+
+
+//q3
+3fgm h33;
+f g38 3:33;
+3fgm h33;
+
+//q4
+f g38 5:51;
+f g38 1:34;
