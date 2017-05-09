@@ -208,16 +208,19 @@ public class TestBasketball extends BasketballBaseListener{
 
         System.out.println("Away Team Statistics");
         System.out.println(" P  | MA   MS   FTA   FTM   RB    A    F    T    S");
+        System.out.println("---------------------------------------------------");
         for(int i = 0; i < awayPlayers.size(); i++){
-            String printText = " " + awayPlayers.get(i) + " | " + nullToZero(guestTeamShotsMade.get(awayPlayers.get(i))) + "    " + nullToZero(guestTeamShotsMissed.get(awayPlayers.get(i))) + "     " + nullToZero(guestTeamFreeThrowAttempt.get(awayPlayers.get(i)))+ "     " +  nullToZero(guestTeamFreeThrowMade.get(awayPlayers.get(i)))+ "     " + nullToZero(guestTeamRebounds.get(awayPlayers.get(i))) + "    "+ nullToZero(guestTeamAssists.get(awayPlayers.get(i))) + "    " + nullToZero(guestTeamFouls.get(awayPlayers.get(i))) + "    " + nullToZero(guestTeamTurnover.get(awayPlayers.get(i))) + "    " + nullToZero(guestTeamSteal.get(awayPlayers.get(i)));
+            String printText = String.format(" %2d | %2d   %2d   %2d    %2d    %2d   %2d   %2d   %2d   %2d", awayPlayers.get(i), nullToZero(guestTeamShotsMade.get(awayPlayers.get(i))),  nullToZero(guestTeamShotsMissed.get(awayPlayers.get(i))), nullToZero(guestTeamFreeThrowAttempt.get(awayPlayers.get(i))), nullToZero(guestTeamFreeThrowMade.get(awayPlayers.get(i))), nullToZero(guestTeamRebounds.get(awayPlayers.get(i))), nullToZero(guestTeamAssists.get(awayPlayers.get(i))), nullToZero(guestTeamFouls.get(awayPlayers.get(i))), nullToZero(guestTeamTurnover.get(awayPlayers.get(i))), nullToZero(guestTeamSteal.get(awayPlayers.get(i))));
             System.out.print(printText);
             System.out.println();
         }
 
+        System.out.println("");
         System.out.println("Home Team Statistics");
-        System.out.println(" P  | MA   MS   FTA   FTM   RB   A    F    T    S");
+        System.out.println(" P  | MA   MS   FTA   FTM   RB    A    F    T    S");
+        System.out.println("---------------------------------------------------");
         for(int i = 0; i < homePlayers.size(); i++){
-            String printText = " " + homePlayers.get(i) + " | " + nullToZero(homeTeamShotsMade.get(homePlayers.get(i))) + "    " + nullToZero(homeTeamShotsMissed.get(homePlayers.get(i))) + "     "+ nullToZero(homeTeamFreeThrowAttempt.get(homePlayers.get(i)))+ "     "+ nullToZero(homeTeamFreeThrowMade.get(homePlayers.get(i)))+ "    " + nullToZero(homeTeamRebounds.get(homePlayers.get(i))) + "    "+ nullToZero(homeTeamAssists.get(homePlayers.get(i))) + "    " + nullToZero(homeTeamFouls.get(homePlayers.get(i))) + "    " + nullToZero(homeTeamTurnover.get(homePlayers.get(i))) + "    " + nullToZero(homeTeamSteal.get(awayPlayers.get(i)));
+            String printText = String.format(" %2d | %2d   %2d   %2d    %2d    %2d   %2d   %2d   %2d   %2d", homePlayers.get(i), nullToZero(homeTeamShotsMade.get(homePlayers.get(i))), nullToZero(homeTeamShotsMissed.get(homePlayers.get(i))), nullToZero(homeTeamFreeThrowAttempt.get(homePlayers.get(i))), nullToZero(homeTeamFreeThrowMade.get(homePlayers.get(i))), nullToZero(homeTeamRebounds.get(homePlayers.get(i))), nullToZero(homeTeamAssists.get(homePlayers.get(i))), nullToZero(homeTeamFouls.get(homePlayers.get(i))), nullToZero(homeTeamTurnover.get(homePlayers.get(i))), nullToZero(homeTeamSteal.get(awayPlayers.get(i))));
             System.out.print(printText);
             System.out.println();
         }
