@@ -1,4 +1,7 @@
 3fgm h44;
+3fgm g44;
+3fgm h44;
+3fgm h44;
 3fga h44 g22;
 2fgm h44 h33;
 2fga h44 g11;
