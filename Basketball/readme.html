@@ -20,10 +20,14 @@ Players: Each team is designated by either h (home) or g (guest). To specify wha
 number right after the number like this "h22"
 
 -fgm (Field Goal Make): is for when a player scroes a basket. It has one required parameter and two optional ones.
-The required parameter is who scored the basket. The two optional ones who assisted the player and who go the rebound
+The required parameter is who scored the basket. The two optional ones who assisted the player and who go the rebound. Examples:
+- 2fgm g54 g44;
+- 3fgm g54 g38;
 
 -fga (Field Goal Assist): is for when a player attempts to score a basktet. It has one required parameter and two optional ones.
-The required parameter is who attempted the basket. The two optional ones who assisted the player and who go the rebound
+The required parameter is who attempted the basket. The two optional ones who assisted the player and who go the rebound. Examples:
+- 2fga h21 h23;
+- 3fga h23 g35;
 
 -f (Foul): is for when a player gets fouled. It has two required parameters and two optional parameters.
 The two required parameters are the player who was fouled and what time he was fouled at. The two optional parameters
@@ -41,7 +45,9 @@ The fourth  is somebody getting foulde and failing score their freethrow.
 
 -t (turnovers): Is for when ball switches teams. This has one required and one optional parameter. The first is who
 caused the turnover to happen. The second is who stole the ball. It's optional because the ball can be turned over without
-having it be stolen.
+having it be stolen. Example:
+- t h12;
+- t h12 g44;
 
 -q (quater): This logs when a quater ends. It requires putting a number right after the q to signify what quater it is.
 It looks like this:
@@ -50,12 +56,12 @@ It looks like this:
 - q4
 Running Instructions
 =========
+Open the project in IntelliJ, and hit the run on the `Basketball` project.
 
-j
 Screenshots
 =========
 
-![Working translator](part4.jpg)
+![Working Game Statistics](Part5.jpg width="650px")
 
 DSL Discussion
 ==============
@@ -71,7 +77,7 @@ Abram:
 - worked on antlr grammar
 - worked on antlr parser
 - worked on translation
-- worked on documentation
+- worked on debugging
 
 Andrew:
 - worked on antlr grammar
