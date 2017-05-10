@@ -1,0 +1,66 @@
+**Documentation**
+
+
+BBallParser Explanation
+========
+The BBallParser DSL is designed to quickly put out basketball stats for a given game with a simple, 
+clearly laid out short hand language.
+
+
+DSL Syntax Explanation
+========
+The language works by having each line in the file correspond to something happening in the game. For example 
+one line could be "3fgm h44 h22;". That would correspond to Home player 44 scored a field goal and was assisted
+Home player 22.
+
+
+Syntax Rules: 
+
+Players: Each team is designated by either h (home) or g (guest). To specify what player it is you put there player
+number right after the number like this "h22"
+
+-fgm (Field Goal Make): is for when a player scroes a basket. It has one required parameter and two optional ones. 
+The required parameter is who scored the basket. The two optional ones who assisted the player and who go the rebound
+
+-fga (Field Goal Assist): is for when a player attempts to score a basktet. It has one required parameter and two optional ones. 
+The required parameter is who attempted the basket. The two optional ones who assisted the player and who go the rebound
+
+-f (Foul): is for when a player gets fouled. It has two required parameters and two optional parameters. 
+The two required parameters are the player who was fouled and what time he was fouled at. The two optional parameters 
+are freethrow makes and freethrow attempts. Some example inputs would be:
+- f g38 3:33;
+- f h33 3:33 m g43;
+- f h33 3:33 m g43 m g23;
+- f h33 3:33 a g43 h24;
+The first example is somebody getting fouled. The second is somebody getting fouled and scoring one basket and the third is some scoring two.
+The fourth  is somebody getting foulde and failing score their freethrow.
+
+-Freethrows (m or a): These come after a foul:
+- m has only one parameter (thats required). The player who made the basket.
+- a has two required parameters. The first is the player who attempted the baskter and the second is caught the rebound.
+
+-t (turnovers): Is for when ball switches teams. This has one required and one optional parameter. The first is who 
+caused the turnover to happen. The second is who stole the ball. It's optional because the ball can be turned over without
+having it be stolen.
+
+-q (quater): This logs when a quater ends. It requires putting a number right after the q to signify what quater it is. 
+It looks like this: 
+- q2
+- q3
+- q4
+Running Instructions
+=========
+
+j
+Screenshots
+=========
+
+![Working translator](part4.jpg)
+
+
+Student Info
+=============
+
+Abram Stamper, Cody Theien, Andrew Jackson
+
+<!-- Markdeep: --><style class="fallback">body{visibility:hidden;white-space:pre;font-family:monospace}</style><script src="markdeep.min.js"></script><script src="https://casual-effects.com/markdeep/latest/markdeep.min.js"></script><script>window.alreadyProcessedMarkdeep||(document.body.style.visibility="visible")</script>
