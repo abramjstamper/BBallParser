@@ -243,7 +243,7 @@ public class TestBasketball extends BasketballBaseListener{
         }
         System.out.println();
 
-        FileInputStream inputStream = new FileInputStream("test.txt");
+        FileInputStream inputStream = new FileInputStream(args[0]);
         ANTLRInputStream input = new ANTLRInputStream(inputStream);
         BasketballLexer lexer = new BasketballLexer(input);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
