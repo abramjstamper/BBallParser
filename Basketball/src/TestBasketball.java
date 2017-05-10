@@ -129,8 +129,6 @@ public class TestBasketball extends BasketballBaseListener{
 
         if (ctx.getText().charAt(3) == 'm') {
             //this is a made shot
-            System.out.print(ctx.player().getText().substring(0, 1));
-            System.out.println(ctx.player().getText().substring(0, 1).equals("h"));
             if (ctx.player().getText().substring(0, 1).equals("h")) {
                 if(!homeTeamShotsMade.contains(player))
                     homeTeamShotsMade.putIfAbsent(player, 0);
