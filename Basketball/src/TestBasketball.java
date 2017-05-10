@@ -144,7 +144,6 @@ public class TestBasketball extends BasketballBaseListener{
                 if(!guestTeamShotsMissed.contains(player))
                     guestTeamShotsMissed.putIfAbsent(player, 0);
                 guestTeamShotsMissed.put(player, guestTeamShotsMissed.get(player) + Integer.parseInt(ctx.getText().substring(0, 1)));
-                System.out.println(Integer.parseInt(ctx.getText().substring(0, 1)));
             } else {
                 if(!homeTeamShotsMissed.contains(player))
                     homeTeamShotsMissed.putIfAbsent(player, 0);
@@ -211,24 +210,51 @@ public class TestBasketball extends BasketballBaseListener{
         ArrayList<Integer> awayPlayers = getGuestPlayers();
         ArrayList<Integer> homePlayers = getHomePlayers();
 
+        int hfgm = 0, hfga = 0, hftm = 0, hfta = 0, hrb = 0, ha = 0, hf = 0, ht = 0, hs = 0;
+        int gfgm = 0, gfga = 0, gftm = 0, gfta = 0, grb = 0, ga = 0, gf = 0, gt = 0, gs = 0;
+
         System.out.println("Away Team Statistics");
         System.out.println(" P  | FGM   FGA   FTA   FTM   RB    A    F    T    S");
-        System.out.println("---------------------------------------------------");
+        System.out.println("---------------------------------------------------------");
         for(int i = 0; i < awayPlayers.size(); i++){
+            gfgm += nullToZero(guestTeamShotsMade.get(awayPlayers.get(i)));
+            gfga += nullToZero(guestTeamShotsMissed.get(awayPlayers.get(i)));
+            gftm += nullToZero(guestTeamFreeThrowMade.get(awayPlayers.get(i)));
+            gfta += nullToZero(guestTeamFreeThrowAttempt.get(awayPlayers.get(i)));
+            grb += nullToZero(guestTeamRebounds.get(awayPlayers.get(i)));
+            ga += nullToZero(guestTeamAssists.get(awayPlayers.get(i)));
+            gf += nullToZero(guestTeamFouls.get(awayPlayers.get(i)));
+            gt += nullToZero(guestTeamTurnover.get(awayPlayers.get(i)));
+            gs += nullToZero(guestTeamSteal.get(awayPlayers.get(i)));
             String printText = String.format(" %2d |  %2d    %2d    %2d    %2d   %2d   %2d   %2d   %2d   %2d", awayPlayers.get(i), nullToZero(guestTeamShotsMade.get(awayPlayers.get(i))),  nullToZero(guestTeamShotsMissed.get(awayPlayers.get(i))), nullToZero(guestTeamFreeThrowAttempt.get(awayPlayers.get(i))), nullToZero(guestTeamFreeThrowMade.get(awayPlayers.get(i))), nullToZero(guestTeamRebounds.get(awayPlayers.get(i))), nullToZero(guestTeamAssists.get(awayPlayers.get(i))), nullToZero(guestTeamFouls.get(awayPlayers.get(i))), nullToZero(guestTeamTurnover.get(awayPlayers.get(i))), nullToZero(guestTeamSteal.get(awayPlayers.get(i))));
             System.out.print(printText);
             System.out.println();
         }
+        System.out.println("---------------------------------------------------------");
+        String guestTotals = String.format("  T |  %2d    %2d    %2d    %2d   %2d   %2d   %2d   %2d   %2d", gfgm, gfga, gftm, gfta, grb, ga, gf, gt, gs);
+        System.out.println(guestTotals);
 
         System.out.println("");
         System.out.println("Home Team Statistics");
         System.out.println(" P  | FGM   FGA   FTA   FTM   RB    A    F    T    S");
         System.out.println("---------------------------------------------------");
         for(int i = 0; i < homePlayers.size(); i++){
-            String printText = String.format(" %2d |  %2d    %2d    %2d    %2d   %2d   %2d   %2d   %2d   %2d", homePlayers.get(i), nullToZero(homeTeamShotsMade.get(homePlayers.get(i))), nullToZero(homeTeamShotsMissed.get(homePlayers.get(i))), nullToZero(homeTeamFreeThrowAttempt.get(homePlayers.get(i))), nullToZero(homeTeamFreeThrowMade.get(homePlayers.get(i))), nullToZero(homeTeamRebounds.get(homePlayers.get(i))), nullToZero(homeTeamAssists.get(homePlayers.get(i))), nullToZero(homeTeamFouls.get(homePlayers.get(i))), nullToZero(homeTeamTurnover.get(homePlayers.get(i))), nullToZero(homeTeamSteal.get(awayPlayers.get(i))));
+            hfgm += nullToZero(homeTeamShotsMade.get(homePlayers.get(i)));
+            hfga += nullToZero(homeTeamShotsMissed.get(homePlayers.get(i)));
+            hftm += nullToZero(homeTeamFreeThrowAttempt.get(homePlayers.get(i)));
+            hfta += nullToZero(homeTeamFreeThrowMade.get(homePlayers.get(i)));
+            hrb += nullToZero(homeTeamRebounds.get(homePlayers.get(i)));
+            ha += nullToZero(homeTeamAssists.get(homePlayers.get(i)));
+            hf += nullToZero(homeTeamFouls.get(homePlayers.get(i)));
+            ht += nullToZero(homeTeamTurnover.get(homePlayers.get(i)));
+            hs += nullToZero(homeTeamSteal.get(homePlayers.get(i)));
+            String printText = String.format(" %2d |  %2d    %2d    %2d    %2d   %2d   %2d   %2d   %2d   %2d", homePlayers.get(i), nullToZero(homeTeamShotsMade.get(homePlayers.get(i))), nullToZero(homeTeamShotsMissed.get(homePlayers.get(i))), nullToZero(homeTeamFreeThrowAttempt.get(homePlayers.get(i))), nullToZero(homeTeamFreeThrowMade.get(homePlayers.get(i))), nullToZero(homeTeamRebounds.get(homePlayers.get(i))), nullToZero(homeTeamAssists.get(homePlayers.get(i))), nullToZero(homeTeamFouls.get(homePlayers.get(i))), nullToZero(homeTeamTurnover.get(homePlayers.get(i))), nullToZero(homeTeamSteal.get(homePlayers.get(i))));
             System.out.print(printText);
             System.out.println();
         }
+        System.out.println("---------------------------------------------------------");
+        String homeTotals = String.format("  T |  %2d    %2d    %2d    %2d   %2d   %2d   %2d   %2d   %2d", hfgm, hfga, hftm, hfta, hrb, ha, hf, ht, hs);
+        System.out.println(homeTotals);
         System.out.println("End Game Statistics");
     }
 
